@@ -11,9 +11,11 @@
 		52010D8B1E47D2BC00B424F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52010D8A1E47D2BC00B424F0 /* ViewController.swift */; };
 		52010D8E1E47D2BC00B424F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52010D8C1E47D2BC00B424F0 /* Main.storyboard */; };
 		52010D901E47D2BC00B424F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52010D8F1E47D2BC00B424F0 /* Assets.xcassets */; };
-		52010D931E47D2BC00B424F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52010D911E47D2BC00B424F0 /* LaunchScreen.storyboard */; };
 		52010D9E1E47D2BC00B424F0 /* NowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52010D9D1E47D2BC00B424F0 /* NowTests.swift */; };
 		52010DA91E47D2BC00B424F0 /* NowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52010DA81E47D2BC00B424F0 /* NowUITests.swift */; };
+		5247A3271E6B7D7300DA31B4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247A3261E6B7D7300DA31B4 /* Settings.swift */; };
+		52783E0D1E77BD0A00C9737B /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52783E0C1E77BD0A00C9737B /* Notifications.swift */; };
+		52BFFA271E512D8100101852 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BFFA261E512D8100101852 /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,6 @@
 		52010D8A1E47D2BC00B424F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52010D8D1E47D2BC00B424F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52010D8F1E47D2BC00B424F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		52010D921E47D2BC00B424F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52010D941E47D2BC00B424F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52010D991E47D2BC00B424F0 /* NowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52010D9D1E47D2BC00B424F0 /* NowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowTests.swift; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		52010DA41E47D2BC00B424F0 /* NowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52010DA81E47D2BC00B424F0 /* NowUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowUITests.swift; sourceTree = "<group>"; };
 		52010DAA1E47D2BC00B424F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5247A3261E6B7D7300DA31B4 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		52783E0C1E77BD0A00C9737B /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		52BFFA261E512D8100101852 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +101,13 @@
 		52010D871E47D2BC00B424F0 /* Now */ = {
 			isa = PBXGroup;
 			children = (
-				52010D881E47D2BC00B424F0 /* AppDelegate.swift */,
-				52010D8A1E47D2BC00B424F0 /* ViewController.swift */,
 				52010D8C1E47D2BC00B424F0 /* Main.storyboard */,
+				52010D8A1E47D2BC00B424F0 /* ViewController.swift */,
+				52BFFA261E512D8100101852 /* Camera.swift */,
+				5247A3261E6B7D7300DA31B4 /* Settings.swift */,
+				52783E0C1E77BD0A00C9737B /* Notifications.swift */,
+				52010D881E47D2BC00B424F0 /* AppDelegate.swift */,
 				52010D8F1E47D2BC00B424F0 /* Assets.xcassets */,
-				52010D911E47D2BC00B424F0 /* LaunchScreen.storyboard */,
 				52010D941E47D2BC00B424F0 /* Info.plist */,
 			);
 			path = Now;
@@ -233,7 +239,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52010D931E47D2BC00B424F0 /* LaunchScreen.storyboard in Resources */,
 				52010D901E47D2BC00B424F0 /* Assets.xcassets in Resources */,
 				52010D8E1E47D2BC00B424F0 /* Main.storyboard in Resources */,
 			);
@@ -260,8 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52783E0D1E77BD0A00C9737B /* Notifications.swift in Sources */,
 				52010D8B1E47D2BC00B424F0 /* ViewController.swift in Sources */,
 				52010D891E47D2BC00B424F0 /* AppDelegate.swift in Sources */,
+				5247A3271E6B7D7300DA31B4 /* Settings.swift in Sources */,
+				52BFFA271E512D8100101852 /* Camera.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,14 +311,6 @@
 				52010D8D1E47D2BC00B424F0 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		52010D911E47D2BC00B424F0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				52010D921E47D2BC00B424F0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -415,7 +415,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GYX9ZA9RA8;
 				INFOPLIST_FILE = Now/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Kevin.Y.Now;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,7 +429,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GYX9ZA9RA8;
 				INFOPLIST_FILE = Now/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Kevin.Y.Now;
 				PRODUCT_NAME = "$(TARGET_NAME)";
