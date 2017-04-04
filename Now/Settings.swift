@@ -12,8 +12,12 @@ import UserNotifications
 
 class Settings: UIViewController{
     
+    override func viewWillAppear(_ animated: Bool){
+        print("view will appear")
+    }
+
     override func viewDidLoad(){
-        
+        print("View did load")
         //assume granted notif authorization
         //if granted notif
         
@@ -22,6 +26,26 @@ class Settings: UIViewController{
         //notif setttings.. time range for notifications.. randomness of notification..
         //request
         //notif add
+        setNotifAlert();
+    }
+    
+    
+    func setNotifAlert(){
+        let content = UNMutableNotificationContent()
+        content.title = "What's up?"
+        content.subtitle = ""
+        content.body = "Take a picture or video!"
+        content.badge = 7
+        content.sound = UNNotificationSound.default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval:5.0, repeats:false)
+        
+        let request = UNNotificationRequest(
+            identifier: "identifier",
+            content: content,
+            trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil);
     }
 }
 
