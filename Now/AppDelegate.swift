@@ -12,7 +12,7 @@ import Foundation
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate{
 
     var window: UIWindow?
 
@@ -28,10 +28,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("local notifications not granted")
                 }
         })
-        
-        
         return true
     }
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
+        return true;
+    }
+    
+    //SO
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let notifTitle = response.notification.request.content.title
+        
+        if notifTitle == "What's up?" {
+            // Access the storyboard and fetch an instance of the view controller
+            let storyboard = UIStoryboard(name: "Main", bundle: nil);
+            let navController: UINavigationController = storyboard.instantiateViewController(withIdentifier: "Nav") as! UINavigationController;
+             let cameraController = storyboard.instantiateViewController(withIdentifier: "Camera")
+            
+            //probably have to use root view controller
+            //http://stackoverflow.com/questions/27135997/perform-segue-from-app-delegate-swift
+            navController.pushViewController(cameraController, animated: true);
+            print("test")
+        }
+        completionHandler()
+    }
+    
+//    func userNotificationCenter(_ center: UNUserNotificationCenter,
+//                                willPresent notification: UNNotification,
+//                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void){
+//        let userInfo = response.notification.request.content.userInfo
+//        if let chatID = userInfo["chatID"] as? String {
+//            // here you can instantiate / select the viewController and present it
+//        }
+//        completionHandler()
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
