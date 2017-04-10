@@ -84,7 +84,6 @@ class Camera: UIViewController, UITextFieldDelegate{
                 UIImageWriteToSavedPhotosAlbum(photoImage, nil, nil, nil)
             })
         }
-
     }
     
 }
