@@ -12,21 +12,44 @@ import UserNotifications
 
 class Settings: UIViewController{
     
+    @IBAction func toggleNotifications(_ sender: UISwitch) {
+        print(sender.isOn);
+        print("UIDatePicker: ", timeSet.date);
+//        setTime();
+        
+        //formatting to just get time from UIDatePicker
+        var timeFormatter = DateFormatter();
+        timeFormatter.timeStyle = DateFormatter.Style.short
+        var formattedDate = timeFormatter.string(from: timeSet.date)
+        
+        print("formmated date: ", formattedDate)
+        
+    }
+    
+    @IBOutlet weak var timeSet: UIDatePicker!
+    
+    
     override func viewWillAppear(_ animated: Bool){
         print("view will appear")
     }
-
+    
     override func viewDidLoad(){
         print("View did load")
         //assume granted notif authorization
-        //if granted notif
+//        if(sender.isOn){
+            setNotifAlert();
+//        }
+    }
+    
+    func setTime(){
+        timeSet.addTarget(self, action: Selector("actionHandler:"), for: UIControlEvents.valueChanged)
+    }
+    
+    func actionHandler(sender: UIDatePicker){
+//        var timeFormatter = DateFormatter();
+//        timeFormatter.timeStyle = DateFormatterStyle.ShortStyle
         
-        //set notif content
-        //trigger
-        //notif setttings.. time range for notifications.. randomness of notification..
-        //request
-        //notif add
-        setNotifAlert();
+        
     }
     
     
@@ -38,8 +61,7 @@ class Settings: UIViewController{
         content.badge = 7
         content.sound = UNNotificationSound.default()
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval:5.0, repeats:false)
-        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval:3.0, repeats:false)
         let request = UNNotificationRequest(
             identifier: "identifier",
             content: content,
