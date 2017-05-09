@@ -12,7 +12,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Now" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="MainViewController" customModule="Now" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -64,7 +64,7 @@
         <!--View Controller-->
         <scene sceneID="PRd-19-eT7">
             <objects>
-                <viewController storyboardIdentifier="Nav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5YB-mi-InO" customClass="ViewController" customModule="Now" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="5YB-mi-InO" customClass="ViewController" customModule="Now" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UxJ-FJ-nX6"/>
                         <viewControllerLayoutGuide type="bottom" id="YQs-bg-LKu"/>
@@ -114,19 +114,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="HH - HH" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bxh-Jl-jr0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bxh-Jl-jr0">
                                 <rect key="frame" x="122" y="222" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="startTimeAfterEdit:forEvent:" destination="kXY-BZ-OGH" eventType="editingDidEnd" id="jmF-Fy-ogj"/>
+                                    <action selector="startTimeBeginEdit:" destination="kXY-BZ-OGH" eventType="editingDidBegin" id="OLM-1D-1rj"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="HH - HH" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ka5-AQ-RVW">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ka5-AQ-RVW">
                                 <rect key="frame" x="249" y="222" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="endTimeAfterEdit:forEvent:" destination="kXY-BZ-OGH" eventType="editingDidEnd" id="x0I-YD-MDu"/>
+                                    <action selector="endTimeBeginEdit:forEvent:" destination="kXY-BZ-OGH" eventType="editingDidBegin" id="CXi-tr-Fyd"/>
+                                </connections>
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dsj-jT-szg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -150,18 +158,21 @@
                                     <action selector="toggleNotifications:" destination="kXY-BZ-OGH" eventType="valueChanged" id="iXv-FU-muY"/>
                                 </connections>
                             </switch>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="Nwq-Dm-rrG">
-                                <rect key="frame" x="0.0" y="280" width="375" height="216"/>
+                            <datePicker hidden="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="8ZT-Qa-cov">
+                                <rect key="frame" x="0.0" y="315" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="513144155.95447898">
-                                    <!--2017-04-06 04:02:35 +0000-->
+                                <date key="date" timeIntervalSinceReferenceDate="515002481.91201699">
+                                    <!--2017-04-27 16:14:41 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="datePickerValueChanged:" destination="kXY-BZ-OGH" eventType="valueChanged" id="Ncc-bY-BWy"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="timeSet" destination="Nwq-Dm-rrG" id="Qgw-9a-hWp"/>
+                        <outlet property="datePicker" destination="8ZT-Qa-cov" id="dW0-iM-LbC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5P6-oR-ofi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,6 +225,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zfK-Bl-Ffd"/>
+        <segue reference="5Su-An-KG5"/>
     </inferredMetricsTieBreakers>
 </document>
