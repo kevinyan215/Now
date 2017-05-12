@@ -138,7 +138,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="8ZT-Qa-cov" id="dW0-iM-LbC"/>
+                        <outlet property="endTime" destination="Ka5-AQ-RVW" id="BDs-s7-iWo"/>
+                        <outlet property="startTime" destination="Bxh-Jl-jr0" id="Bzu-xC-jUQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5P6-oR-ofi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -191,6 +192,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zfK-Bl-Ffd"/>
+        <segue reference="5Su-An-KG5"/>
     </inferredMetricsTieBreakers>
 </document>
