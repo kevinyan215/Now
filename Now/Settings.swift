@@ -79,23 +79,63 @@ class Settings: UIViewController, UNUserNotificationCenterDelegate{
 
     @IBAction func toggleNotifications(_ sender: UISwitch) {
 //        print(sender.isOn);
-//        print("datepicker start time", datePickerStartTime)
-//        print("datepicker end time", datePickerEndTime)
+        print("datepicker start time", datePickerStartTime)
+        print("datepicker end time", datePickerEndTime)
         
-        if datePickerStartTime != nil, let datePickerEndTime = datePickerEndTime{
-            let diffTimeIntervalStartEnd = datePickerEndTime.timeIntervalSince(datePickerStartTime!)
-            let randTimeIntervalStartEnd = arc4random_uniform(UInt32(diffTimeIntervalStartEnd))
-            
-            //TODO: Fix notifTime. Breaks when start time is before current time
-            let currentDateTime: Date = Date()
-            let notifTimeInterval = datePickerStartTime!.timeIntervalSince(currentDateTime) + TimeInterval(randTimeIntervalStartEnd);
-            setNotifAlert(notifTimeInterval: notifTimeInterval)
-            
-            print("time interval different from start to end", diffTimeIntervalStartEnd)
-            print("time interval from now till notification", notifTimeInterval)
-            let notifDateTime = Date(timeIntervalSinceNow: notifTimeInterval)
-            print("notification time", formatDateHHMM(date: notifDateTime))
+        if datePickerStartTime != nil, datePickerEndTime != nil{
+            setNotifAlert(notifTimeInterval: getNotifTimeInterval())
         }
+    }
+    
+    func getNotifTimeInterval() -> TimeInterval{
+        let diffTimeIntervalBetweenStartEnd = abs(datePickerEndTime!.timeIntervalSince(datePickerStartTime!))
+        print("time interval different from start to end", diffTimeIntervalBetweenStartEnd)
+
+        let randTimeIntervalBetweenStartEnd = arc4random_uniform(UInt32(diffTimeIntervalBetweenStartEnd))
+   
+        //TODO: Fix notifTime. Breaks when start time is before current time
+        var notifTimeInterval: TimeInterval
+        let currentDateTime: Date = Date()
+        
+        let diffTimeIntervalNowAndStart = datePickerStartTime!.timeIntervalSince(currentDateTime)
+        
+//        datePickerStartTime, datePickerEndTime, currentDateTime
+        
+//        datePickerEndTime - datePickerStartTime >= 0
+//        datePickerEndTime - datePickerStartTime < 0 
+        
+//        currentDateTime = 9p.m.
+        
+//        startTime = 7 p.m., endTime = 1 a.m. //rand(endTime - startTime) //conditions:  startTime < currentDateTime && endTime > currentDateTime
+//        startTime = 11 p.m., endTime = 1 a.m. //check //conditions startTime > currentDateTime && endTime > currentDateTime
+//        startTime = 7 p.m., endTime 8 p.m. //check? //conditions: startTime < currentDateTime && endTime < currentDateTime
+        
+        
+        //times relative to current time
+        //before, after
+        //after, after = //after, before
+        
+        //before, before
+        
+ 
+        if datePickerStartTime! < currentDateTime{
+            print("datePickerStartTime! > currentDateTime")
+            let TWENTY_FOUR_HOURS: TimeInterval = 3600.0 * 24
+            let diffTimeIntervalNowAndStartOtherWay = TWENTY_FOUR_HOURS + diffTimeIntervalNowAndStart
+            notifTimeInterval = diffTimeIntervalNowAndStartOtherWay + TimeInterval(randTimeIntervalBetweenStartEnd)
+        }
+        else{
+            print("else")
+            notifTimeInterval = datePickerStartTime!.timeIntervalSince(currentDateTime) + TimeInterval(randTimeIntervalBetweenStartEnd)
+        }
+
+        
+        print("time interval different from now to start", diffTimeIntervalNowAndStart)
+        print("time interval from now till notification", notifTimeInterval)
+        let notifDateTime = Date(timeIntervalSinceNow: notifTimeInterval)
+        print("notification time", formatDateHHMM(date: notifDateTime))
+
+        return notifTimeInterval
     }
     
     func setNotifAlert(notifTimeInterval: TimeInterval){
@@ -120,4 +160,3 @@ class Settings: UIViewController, UNUserNotificationCenterDelegate{
     }
 
 }
-

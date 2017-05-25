@@ -39,9 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let notifTitle = response.notification.request.content.title
         
-        
         //TODO: notifTitle should be set in a variable that would be shared between Settings.swift and AppDelegate
-        
         if notifTitle == "What's up?" {
             if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Camera") as? Camera {
                 if let window = self.window, let rootViewController = window.rootViewController {
