@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		52010D891E47D2BC00B424F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52010D881E47D2BC00B424F0 /* AppDelegate.swift */; };
-		52010D8B1E47D2BC00B424F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52010D8A1E47D2BC00B424F0 /* ViewController.swift */; };
 		52010D8E1E47D2BC00B424F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52010D8C1E47D2BC00B424F0 /* Main.storyboard */; };
 		52010D901E47D2BC00B424F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52010D8F1E47D2BC00B424F0 /* Assets.xcassets */; };
 		52010D9E1E47D2BC00B424F0 /* NowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52010D9D1E47D2BC00B424F0 /* NowTests.swift */; };
@@ -16,6 +15,7 @@
 		5247A3271E6B7D7300DA31B4 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5247A3261E6B7D7300DA31B4 /* Settings.swift */; };
 		52783E0D1E77BD0A00C9737B /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52783E0C1E77BD0A00C9737B /* Notifications.swift */; };
 		52BFFA271E512D8100101852 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BFFA261E512D8100101852 /* Camera.swift */; };
+		52E87C791E9B5D840028369C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87C781E9B5D840028369C /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 /* Begin PBXFileReference section */
 		52010D851E47D2BC00B424F0 /* Now.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Now.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52010D881E47D2BC00B424F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52010D8A1E47D2BC00B424F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52010D8D1E47D2BC00B424F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52010D8F1E47D2BC00B424F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52010D941E47D2BC00B424F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		5247A3261E6B7D7300DA31B4 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		52783E0C1E77BD0A00C9737B /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		52BFFA261E512D8100101852 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		52E87C781E9B5D840028369C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				52010D8C1E47D2BC00B424F0 /* Main.storyboard */,
-				52010D8A1E47D2BC00B424F0 /* ViewController.swift */,
 				52BFFA261E512D8100101852 /* Camera.swift */,
 				5247A3261E6B7D7300DA31B4 /* Settings.swift */,
 				52783E0C1E77BD0A00C9737B /* Notifications.swift */,
+				52E87C781E9B5D840028369C /* MainViewController.swift */,
 				52010D881E47D2BC00B424F0 /* AppDelegate.swift */,
 				52010D8F1E47D2BC00B424F0 /* Assets.xcassets */,
 				52010D941E47D2BC00B424F0 /* Info.plist */,
@@ -266,8 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				52783E0D1E77BD0A00C9737B /* Notifications.swift in Sources */,
-				52010D8B1E47D2BC00B424F0 /* ViewController.swift in Sources */,
 				52010D891E47D2BC00B424F0 /* AppDelegate.swift in Sources */,
+				52E87C791E9B5D840028369C /* MainViewController.swift in Sources */,
 				5247A3271E6B7D7300DA31B4 /* Settings.swift in Sources */,
 				52BFFA271E512D8100101852 /* Camera.swift in Sources */,
 			);
@@ -413,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GYX9ZA9RA8;
 				INFOPLIST_FILE = Now/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
@@ -427,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = GYX9ZA9RA8;
 				INFOPLIST_FILE = Now/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;

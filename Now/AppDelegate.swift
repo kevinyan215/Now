@@ -12,11 +12,10 @@ import Foundation
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate{
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -28,9 +27,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("local notifications not granted")
                 }
         })
-        
-        
         return true
+    }
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
+        return true;
+    }
+    
+    //UNUserNotificationCenterDelegate
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let notifTitle = response.notification.request.content.title
+        
+        //TODO: notifTitle should be set in a variable that would be shared between Settings.swift and AppDelegate
+        if notifTitle == "What's up?" {
+            if let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Camera") as? Camera {
+                if let window = self.window, let rootViewController = window.rootViewController {
+                    var currentController = rootViewController
+                    while let presentedController = currentController.presentedViewController {
+                        currentController = presentedController
+                    }
+                    currentController.present(controller, animated: true, completion: nil)
+                }
+            }
+        }
+        completionHandler()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
